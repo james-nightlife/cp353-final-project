@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %}
+{% block style %}  
+        body{
+            background-image: url("https://www.teahub.io/photos/full/183-1839574_pastel-iphone-wallpaper-tumblr-cute-8-bit-background.png");
+
+        }
+
+         h1{
+            font-family: 'Kirang Haerang', cursive;
+            text-align: center;
+         }
+            {% endblock %}
+
+{% block body %}
+
+
+<div class='mx-5 my-5'>
+    <div class='mx-3 my-3 px-3 py-3 text-center'>
+        <h1 style="font-size:60px;"> Upload an image to check the currency.</h1>
+        <br>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file1" accept="image/*" class='py-3'><br>
+            <button type="submit" class='btn btn-primary'>Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

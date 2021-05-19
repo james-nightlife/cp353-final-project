@@ -1,0 +1,6 @@
+Baht
+Dollar
+Pound
+Won
+Yen
+Yuan

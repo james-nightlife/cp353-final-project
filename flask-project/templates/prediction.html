@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+{% block style %}  
+        body{
+            background-image: url("https://www.teahub.io/photos/full/183-1839574_pastel-iphone-wallpaper-tumblr-cute-8-bit-background.png");
+
+        }
+
+         h1,h3{
+            font-family: 'Kirang Haerang', cursive;
+            text-align: center;
+            
+         }
+            {% endblock %}
+{% block body %}
+<div class='text-center'>
+<h1 style="font-size:70px;">Prediction</h1>
+<img src='{{url_for("static", filename="uploads/"+path)}}'>
+<h3 style="font-size:50px;">Prediction 💱 : {{ pred_result['predictions'][0]['label'] }} </h3>
+<h3 style="font-size:50px;">Confidence 👍 : {{ "%.2f"| format(pred_result['predictions'][0]['confidence']*100) }}%</h3>
+</div>
+
+
+
+{% endblock %}
