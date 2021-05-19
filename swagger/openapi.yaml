@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: Finance API
+  version: 1.0.0
+  description: API that collect income and expense data
+paths:
+  /deletedata/{index}:
+    delete:
+      parameters:
+        - in: path
+          name: index
+          schema:
+            type: integer
+          required: true
+          description: Index of a specific list
+      responses:
+        '200':
+          description: Delete Successfully
+        '403':
+          description: Index Not Found
+          
+  /editdata/{index}:
+    put:
+      parameters:
+        - in: path
+          name: index
+          schema:
+            type: integer
+          required: true
+          description: Index of a specific list
+      responses:
+        '200':
+          description: Edit Successfully
+        '403':
+          description: Index Not Found
+            
+  /insertdata:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  example: Received from my parents.
+                status:
+                  type: string
+                  example: income
+                value:
+                  type: number
+                  example: 300.00
+      responses:
+        '200':
+          description: Insert Successfully
+        '403':
+          description: Incomplete Data Request
+                  
+  /showdata:
+    get:
+      responses:
+        '200':
+          description: Display List
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    example: [an array of dictionaries]
+  /summarize:
+    get:
+      responses:
+        '200':
+          description: Calculated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Income:
+                    type: number
+                    example: 200
+                  Expense:
+                    type: number
+                    example: 100
+                  Difference:
+                    type: number
+                    example: 100
+            
+  
+        
